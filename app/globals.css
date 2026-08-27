@@ -133,6 +133,7 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
   position: fixed;
   inset: 0;
   z-index: 200;
+  pointer-events: auto;
   display: grid;
   place-items: center;
   padding: clamp(1.2rem, 4vh, 3rem) clamp(1rem, 4vw, 4rem);
@@ -143,6 +144,8 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
 .portfolio-overlay {
   width: min(92vw, 87rem);
   height: min(90vh, 58rem);
+  min-height: 0;
+  pointer-events: auto;
   display: grid;
   grid-template-rows: auto 1fr;
   overflow: hidden;
@@ -176,7 +179,17 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
 .overlay-bar button span { font-size: 1.15rem; line-height: .7; }
 .overlay-bar button:hover { background: currentColor; color: var(--paper); }
 .overlay-about .overlay-bar button:hover { background: var(--paper); color: var(--ink); }
-.overlay-scroll { overflow-y: auto; overscroll-behavior: contain; scrollbar-gutter: stable; padding: clamp(1.5rem, 4vw, 4rem); }
+.overlay-scroll {
+  min-height: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  pointer-events: auto;
+  overscroll-behavior: contain;
+  touch-action: pan-y;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-gutter: stable;
+  padding: clamp(1.5rem, 4vw, 4rem);
+}
 .overlay-heading { display: grid; grid-template-columns: minmax(9rem, 1fr) 4fr; align-items: end; margin-bottom: clamp(2.5rem, 5vw, 5rem); }
 .overlay-heading h2 { margin: 0; font-size: clamp(3.3rem, 7.5vw, 7.4rem); line-height: .82; letter-spacing: -.065em; }
 .overlay-heading > p { opacity: .62; }
