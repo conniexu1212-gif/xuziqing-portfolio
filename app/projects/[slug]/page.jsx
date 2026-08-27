@@ -27,7 +27,7 @@ export default async function ProjectDetail({ params }) {
     <main className="detail-page">
       <header className="detail-header">
         <Link className="wordmark" href="/#top">XUZIQING</Link>
-        <Link className="detail-back" href="/#projects">← 返回项目目录</Link>
+        <Link className="detail-back" href="/#top">← 返回首页</Link>
       </header>
 
       <article>
@@ -88,7 +88,7 @@ export default async function ProjectDetail({ params }) {
       </article>
 
       <nav className="detail-next" aria-label="项目详情导航">
-        <Link href="/#projects">浏览全部项目</Link>
+        <Link href="/#top">返回首页</Link>
         <Link href={`/projects/${projects[(projects.findIndex((item) => item.slug === slug) + 1) % projects.length].slug}`}>
           下一个项目 →
         </Link>
