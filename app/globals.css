@@ -111,13 +111,60 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
 .sticker-title { max-width: 14ch; font-size: clamp(.95rem, 1.45vw, 1.45rem); font-weight: 900; line-height: 1.05; }
 .sticker-subtitle { margin-top: .35rem; font-size: .66rem; }
 .sticker-cta { align-self: flex-end; margin-top: .65rem; font-size: .65rem; font-weight: 750; }
-.sticker-split-fiction { --r: -3deg; left: 34%; top: 16%; width: clamp(17rem, 28vw, 28rem); height: min(30vh, 19rem); background: var(--acid); }
+.project-sticker.is-image-sticker {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  justify-content: stretch;
+  gap: .35rem;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  box-shadow: none;
+  overflow: visible;
+}
+.project-sticker.is-image-sticker:hover,
+.project-sticker.is-image-sticker:focus-visible {
+  outline: none;
+  transform: rotate(var(--r, 0deg));
+  box-shadow: none;
+}
+.sticker-visual {
+  min-height: 0;
+  display: block;
+  transition: transform .24s ease, filter .24s ease;
+}
+.sticker-visual img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: contain;
+  filter: drop-shadow(0 .45rem .42rem rgba(24, 24, 20, .14));
+}
+.is-image-sticker:hover .sticker-visual,
+.is-image-sticker:focus-visible .sticker-visual { transform: translateY(-5px) scale(1.025); }
+.sticker-label {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: end;
+  gap: .6rem;
+  padding-top: .38rem;
+  border-top: 1px solid var(--ink);
+}
+.sticker-label .sticker-index { align-self: start; }
+.sticker-meta { min-width: 0; display: flex; flex-direction: column; }
+.sticker-label .sticker-title { max-width: none; font-size: clamp(.82rem, 1.15vw, 1.08rem); }
+.sticker-label .sticker-subtitle { margin-top: .18rem; }
+.sticker-label .sticker-cta { margin: 0; white-space: nowrap; transition: transform .24s ease; }
+.is-image-sticker:hover .sticker-cta,
+.is-image-sticker:focus-visible .sticker-cta { transform: translateX(3px); text-decoration: underline; text-underline-offset: .2rem; }
+.is-image-sticker:focus-visible .sticker-label { outline: 2px solid var(--ink); outline-offset: 3px; }
+.sticker-split-fiction { --r: -1deg; left: 34%; top: 4%; width: clamp(25rem, 42vw, 39rem); height: min(48vh, 27rem); }
 .sticker-playstation-frontline { --r: 4deg; right: 2%; top: 0; width: clamp(13rem, 20vw, 21rem); height: min(20vh, 11rem); background: var(--blue); }
-.sticker-feirenzai { --r: -5deg; left: 3%; top: 26%; width: clamp(13rem, 19vw, 20rem); height: min(21vh, 11.5rem); background: var(--coral); }
-.sticker-summer-tea { --r: 3deg; right: 4%; bottom: 1%; width: clamp(13rem, 20vw, 21rem); height: min(20vh, 11rem); background: var(--yellow); }
-.sticker-puppy-snake { --r: 5deg; left: 18%; bottom: 0; width: clamp(12rem, 16vw, 15rem); height: min(17vh, 9.5rem); background: var(--pink); }
+.sticker-feirenzai { --r: -2deg; left: 2%; bottom: 0; width: clamp(18rem, 26vw, 25rem); height: min(36vh, 21rem); }
+.sticker-summer-tea { --r: 1.5deg; right: 2%; bottom: 0; width: clamp(18rem, 26vw, 25rem); height: min(36vh, 21rem); }
+.sticker-puppy-snake { --r: 5deg; left: 19%; top: 3%; width: clamp(12rem, 16vw, 15rem); height: min(17vh, 9.5rem); background: var(--pink); }
 .sticker-star-ember { --r: -4deg; left: 57%; bottom: 0; width: clamp(12rem, 16vw, 15rem); height: min(17vh, 9.5rem); background: var(--lilac); }
-.sticker-pragmata { --r: 7deg; left: 5%; top: 0; width: clamp(9rem, 12vw, 11rem); height: min(15vh, 8rem); background: var(--mint); }
+.sticker-pragmata { --r: 7deg; left: 3%; top: 0; width: clamp(9rem, 12vw, 11rem); height: min(15vh, 8rem); background: var(--mint); }
 .home-contact { position: absolute; z-index: 20; right: clamp(1.25rem, 3.4vw, 3.75rem); bottom: .9rem; font-size: .62rem; letter-spacing: .08em; text-decoration: none; }
 .home-contact:hover { text-decoration: underline; text-underline-offset: .25rem; }
 
@@ -336,6 +383,18 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
     animation-name: enter-mobile;
   }
   .project-sticker:hover, .project-sticker:focus-visible { transform: translateY(-2px); box-shadow: 3px 4px 0 var(--ink); }
+  .project-sticker.is-image-sticker {
+    grid-template-rows: minmax(0, 1fr) auto;
+    gap: .2rem;
+    padding: 0;
+    box-shadow: none;
+  }
+  .project-sticker.is-image-sticker:hover,
+  .project-sticker.is-image-sticker:focus-visible { transform: none; box-shadow: none; }
+  .sticker-label { grid-template-columns: auto minmax(0, 1fr); gap: .3rem; padding-top: .2rem; }
+  .sticker-label .sticker-title { font-size: clamp(.68rem, 3vw, .82rem); white-space: nowrap; }
+  .sticker-label .sticker-subtitle { font-size: .48rem; white-space: nowrap; }
+  .sticker-label .sticker-cta { grid-column: 2; justify-self: start; font-size: .48rem; }
   .sticker-split-fiction { grid-column: 1 / -1; }
   .sticker-playstation-frontline, .sticker-feirenzai, .sticker-summer-tea,
   .sticker-puppy-snake, .sticker-star-ember, .sticker-pragmata { grid-column: auto; }
