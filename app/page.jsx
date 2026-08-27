@@ -22,38 +22,26 @@ export default function Home() {
             <Link
               key={project.slug}
               href={`/projects/${project.slug}`}
-              className={`project-sticker sticker-${project.slug}${project.heroImage ? ' is-image-sticker' : ''}`}
+              className={`project-sticker sticker-${project.slug}`}
               aria-label={`查看项目：${project.title}`}
               style={{ animationDelay: `${150 + index * 65}ms` }}
             >
-              {project.heroImage ? (
-                <>
-                  <span className="sticker-visual">
-                    <img
-                      src={project.heroImage}
-                      alt={project.heroAlt}
-                      loading="eager"
-                      decoding="async"
-                      fetchPriority={project.slug === 'split-fiction' ? 'high' : 'auto'}
-                    />
-                  </span>
-                  <span className="sticker-label">
-                    <span className="sticker-index">{project.index}</span>
-                    <span className="sticker-meta">
-                      <span className="sticker-title">{project.title}</span>
-                      <span className="sticker-subtitle">{project.subtitle}</span>
-                    </span>
-                    <span className="sticker-cta">查看项目 ↗</span>
-                  </span>
-                </>
-              ) : (
-                <>
-                  <span className="sticker-index">{project.index}</span>
+              <span className="sticker-visual">
+                <img
+                  src={project.heroImage}
+                  alt={project.heroAlt}
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority={project.slug === 'split-fiction' ? 'high' : 'auto'}
+                />
+              </span>
+              <span className="sticker-label">
+                <span className="sticker-meta">
                   <span className="sticker-title">{project.title}</span>
                   <span className="sticker-subtitle">{project.subtitle}</span>
-                  <span className="sticker-cta">查看项目 ↗</span>
-                </>
-              )}
+                </span>
+                <span className="sticker-cta" aria-hidden="true">查看项目 ↗</span>
+              </span>
             </Link>
           ))}
         </div>

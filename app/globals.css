@@ -80,55 +80,31 @@ button { color: inherit; font: inherit; }
   transform-origin: center;
 }
 body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
-.hero-copy { position: relative; z-index: 3; pointer-events: none; }
+.hero-copy { position: relative; z-index: 14; pointer-events: none; }
 .hero-copy > p:first-child { margin: 0 0 .75rem; font-size: .65rem; letter-spacing: .15em; }
 .hero-copy h1 { margin: 0; font-size: clamp(4rem, 11vw, 10.5rem); line-height: .78; letter-spacing: -.075em; }
 .hero-role { margin: 1.3rem 0 0; font-size: clamp(.95rem, 1.55vw, 1.35rem); font-weight: 650; }
 
-.sticker-field { position: absolute; inset: clamp(12.2rem, 26vh, 15rem) 1rem 2.3rem; }
+.sticker-field { position: absolute; inset: clamp(13rem, 25vh, 14rem) 1rem 2.8rem; }
 .project-sticker {
   position: absolute;
-  min-width: 9rem;
-  min-height: 7.5rem;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: .85rem;
-  border: 1.5px solid var(--ink);
-  box-shadow: 4px 4px 0 var(--ink);
-  text-decoration: none;
-  transform: rotate(var(--r, 0deg));
-  transition: transform .22s ease, box-shadow .22s ease;
-}
-.project-sticker:hover, .project-sticker:focus-visible {
-  z-index: 10;
-  outline: 3px solid var(--ink);
-  outline-offset: 3px;
-  transform: translateY(-6px) rotate(var(--r, 0deg)) scale(1.02);
-  box-shadow: 8px 9px 0 var(--ink);
-}
-.sticker-index { font-size: .62rem; }
-.sticker-title { max-width: 14ch; font-size: clamp(.95rem, 1.45vw, 1.45rem); font-weight: 900; line-height: 1.05; }
-.sticker-subtitle { margin-top: .35rem; font-size: .66rem; }
-.sticker-cta { align-self: flex-end; margin-top: .65rem; font-size: .65rem; font-weight: 750; }
-.project-sticker.is-image-sticker {
+  z-index: 4;
   display: grid;
   grid-template-rows: minmax(0, 1fr) auto;
-  justify-content: stretch;
-  gap: .35rem;
+  gap: .22rem;
   padding: 0;
   border: 0;
   background: transparent;
   box-shadow: none;
   overflow: visible;
-}
-.project-sticker.is-image-sticker:hover,
-.project-sticker.is-image-sticker:focus-visible {
-  outline: none;
+  text-decoration: none;
   transform: rotate(var(--r, 0deg));
-  box-shadow: none;
+  transition: transform .24s ease;
 }
+.project-sticker:hover { z-index: 12; }
+.project-sticker:focus-visible { z-index: 12; outline: none; }
 .sticker-visual {
+  aspect-ratio: 1;
   min-height: 0;
   display: block;
   transition: transform .24s ease, filter .24s ease;
@@ -138,33 +114,41 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
   height: 100%;
   display: block;
   object-fit: contain;
-  filter: drop-shadow(0 .45rem .42rem rgba(24, 24, 20, .14));
+  filter: drop-shadow(0 .38rem .32rem rgba(24, 24, 20, .13));
 }
-.is-image-sticker:hover .sticker-visual,
-.is-image-sticker:focus-visible .sticker-visual { transform: translateY(-5px) scale(1.025); }
+.project-sticker:hover .sticker-visual,
+.project-sticker:focus-visible .sticker-visual {
+  transform: translateY(-5px) scale(1.025);
+  filter: drop-shadow(0 .55rem .4rem rgba(24, 24, 20, .17));
+}
 .sticker-label {
-  display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  align-items: end;
-  gap: .6rem;
-  padding-top: .38rem;
-  border-top: 1px solid var(--ink);
+  min-width: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: .45rem;
 }
-.sticker-label .sticker-index { align-self: start; }
 .sticker-meta { min-width: 0; display: flex; flex-direction: column; }
-.sticker-label .sticker-title { max-width: none; font-size: clamp(.82rem, 1.15vw, 1.08rem); }
-.sticker-label .sticker-subtitle { margin-top: .18rem; }
-.sticker-label .sticker-cta { margin: 0; white-space: nowrap; transition: transform .24s ease; }
-.is-image-sticker:hover .sticker-cta,
-.is-image-sticker:focus-visible .sticker-cta { transform: translateX(3px); text-decoration: underline; text-underline-offset: .2rem; }
-.is-image-sticker:focus-visible .sticker-label { outline: 2px solid var(--ink); outline-offset: 3px; }
-.sticker-split-fiction { --r: -1deg; left: 34%; top: 4%; width: clamp(25rem, 42vw, 39rem); height: min(48vh, 27rem); }
-.sticker-playstation-frontline { --r: 4deg; right: 2%; top: 0; width: clamp(13rem, 20vw, 21rem); height: min(20vh, 11rem); background: var(--blue); }
-.sticker-feirenzai { --r: -2deg; left: 2%; bottom: 0; width: clamp(18rem, 26vw, 25rem); height: min(36vh, 21rem); }
-.sticker-summer-tea { --r: 1.5deg; right: 2%; bottom: 0; width: clamp(18rem, 26vw, 25rem); height: min(36vh, 21rem); }
-.sticker-puppy-snake { --r: 5deg; left: 19%; top: 3%; width: clamp(12rem, 16vw, 15rem); height: min(17vh, 9.5rem); background: var(--pink); }
-.sticker-star-ember { --r: -4deg; left: 57%; bottom: 0; width: clamp(12rem, 16vw, 15rem); height: min(17vh, 9.5rem); background: var(--lilac); }
-.sticker-pragmata { --r: 7deg; left: 3%; top: 0; width: clamp(9rem, 12vw, 11rem); height: min(15vh, 8rem); background: var(--mint); }
+.sticker-title { font-size: clamp(.72rem, .92vw, .98rem); font-weight: 900; line-height: 1.12; }
+.sticker-subtitle { margin-top: .16rem; font-size: clamp(.52rem, .58vw, .66rem); white-space: nowrap; }
+.sticker-cta { flex: 0 0 auto; font-size: .55rem; font-weight: 750; white-space: nowrap; opacity: .42; transition: opacity .24s ease, transform .24s ease; }
+.project-sticker:hover .sticker-cta,
+.project-sticker:focus-visible .sticker-cta { opacity: 1; transform: translateX(3px); }
+.project-sticker:focus-visible .sticker-label { outline: 2px solid var(--ink); outline-offset: 3px; }
+.sticker-split-fiction {
+  --r: -1deg;
+  z-index: 8;
+  left: 50%;
+  top: 1%;
+  width: clamp(23rem, min(34vw, 54vh), 31rem);
+  translate: -50% 0;
+}
+.sticker-playstation-frontline { --r: -3deg; z-index: 6; left: 3.5%; top: 1%; width: clamp(13.5rem, min(18.5vw, 30vh), 17rem); }
+.sticker-feirenzai { --r: 2deg; z-index: 6; left: .5%; bottom: 0; width: clamp(13rem, min(18vw, 29vh), 16.5rem); }
+.sticker-summer-tea { --r: -1.5deg; z-index: 6; right: .8%; bottom: 0; width: clamp(13rem, min(18vw, 29vh), 16.5rem); }
+.sticker-puppy-snake { --r: 4deg; left: 22%; top: 2%; width: clamp(9.5rem, min(12.8vw, 23vh), 12rem); }
+.sticker-star-ember { --r: -3deg; left: 66.5%; bottom: 1%; width: clamp(9.75rem, min(13.5vw, 24vh), 12.5rem); }
+.sticker-pragmata { --r: 3deg; right: 18%; top: 1%; width: clamp(9rem, min(12vw, 22vh), 11.5rem); }
 .home-contact { position: absolute; z-index: 20; right: clamp(1.25rem, 3.4vw, 3.75rem); bottom: .9rem; font-size: .62rem; letter-spacing: .08em; text-decoration: none; }
 .home-contact:hover { text-decoration: underline; text-underline-offset: .25rem; }
 
@@ -364,44 +348,33 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
   .hero-copy h1 { font-size: clamp(3.25rem, 18vw, 5rem); }
   .hero-role { margin-top: .7rem; font-size: .78rem; }
   .sticker-field {
-    inset: 10.7rem .75rem 5rem;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: 1.25fr repeat(3, 1fr);
-    gap: .45rem;
+    inset: 9.8rem .65rem 4.9rem;
+    display: block;
   }
   .project-sticker {
-    position: relative;
+    position: absolute;
     inset: auto;
-    width: auto;
-    height: auto;
     min-width: 0;
     min-height: 0;
-    padding: .5rem;
-    transform: none;
-    box-shadow: 2px 2px 0 var(--ink);
+    translate: none;
     animation-name: enter-mobile;
   }
-  .project-sticker:hover, .project-sticker:focus-visible { transform: translateY(-2px); box-shadow: 3px 4px 0 var(--ink); }
-  .project-sticker.is-image-sticker {
-    grid-template-rows: minmax(0, 1fr) auto;
-    gap: .2rem;
-    padding: 0;
-    box-shadow: none;
-  }
-  .project-sticker.is-image-sticker:hover,
-  .project-sticker.is-image-sticker:focus-visible { transform: none; box-shadow: none; }
-  .sticker-label { grid-template-columns: auto minmax(0, 1fr); gap: .3rem; padding-top: .2rem; }
-  .sticker-label .sticker-title { font-size: clamp(.68rem, 3vw, .82rem); white-space: nowrap; }
-  .sticker-label .sticker-subtitle { font-size: .48rem; white-space: nowrap; }
-  .sticker-label .sticker-cta { grid-column: 2; justify-self: start; font-size: .48rem; }
-  .sticker-split-fiction { grid-column: 1 / -1; }
-  .sticker-playstation-frontline, .sticker-feirenzai, .sticker-summer-tea,
-  .sticker-puppy-snake, .sticker-star-ember, .sticker-pragmata { grid-column: auto; }
-  .sticker-title { font-size: clamp(.78rem, 3.6vw, 1rem); }
-  .sticker-subtitle { margin-top: .15rem; font-size: .55rem; }
-  .sticker-index, .sticker-cta { font-size: .52rem; }
-  .sticker-cta { margin-top: .2rem; }
+  .project-sticker:hover .sticker-visual,
+  .project-sticker:focus-visible .sticker-visual { transform: translateY(-2px) scale(1.015); }
+  .sticker-label { display: block; }
+  .sticker-title { font-size: .62rem; line-height: 1.08; }
+  .sticker-subtitle { margin-top: .1rem; font-size: .47rem; white-space: normal; }
+  .sticker-cta { display: none; }
+  .sticker-split-fiction { left: 50%; top: 0; width: 13.6rem; translate: -50% 0; }
+  .sticker-split-fiction .sticker-label { text-align: center; }
+  .sticker-split-fiction .sticker-title { font-size: .78rem; }
+  .sticker-split-fiction .sticker-subtitle { font-size: .53rem; }
+  .sticker-playstation-frontline { left: 0; top: 9.4rem; width: 7.35rem; }
+  .sticker-feirenzai { right: 0; top: 9.8rem; width: 7.35rem; }
+  .sticker-summer-tea { left: 0; top: 19rem; width: 7.35rem; }
+  .sticker-puppy-snake { right: .45rem; top: 19.2rem; width: 6.15rem; }
+  .sticker-star-ember { left: 1.4rem; top: 28.35rem; width: 6.15rem; }
+  .sticker-pragmata { right: 1.35rem; top: 28rem; width: 6.15rem; }
   .home-contact { display: none; }
   @keyframes enter-mobile { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -444,7 +417,7 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
 
 @media (max-width: 390px) {
   .hero-copy h1 { font-size: 17.5vw; }
-  .sticker-field { top: 10rem; }
+  .sticker-field { top: 9.8rem; }
   .detail-back { font-size: .7rem; }
 }
 
