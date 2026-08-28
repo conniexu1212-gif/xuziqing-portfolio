@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import SplitFictionCase from '../../components/projects/SplitFictionCase';
 import { getProject, projects } from '../../data/projects';
 
 export function generateStaticParams() {
@@ -10,11 +11,14 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
+  const images = project.slug === 'split-fiction'
+    ? [{ url: '/assets/projects/split-fiction/hero/official-kv.jpg', width: 800, height: 800, alt: '《双影奇境》PS5 国行版官方主视觉' }]
+    : [];
   return {
     title: `${project.title}｜XUZIQING`,
     description: project.overview,
-    openGraph: { title: `${project.title}｜XUZIQING`, description: project.overview, images: [] },
-    twitter: { title: `${project.title}｜XUZIQING`, description: project.overview, images: [] },
+    openGraph: { title: `${project.title}｜XUZIQING`, description: project.overview, images },
+    twitter: { title: `${project.title}｜XUZIQING`, description: project.overview, images },
   };
 }
 
@@ -22,6 +26,12 @@ export default async function ProjectDetail({ params }) {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) notFound();
+
+  const nextProject = projects[(projects.findIndex((item) => item.slug === slug) + 1) % projects.length];
+
+  if (project.slug === 'split-fiction') {
+    return <SplitFictionCase project={project} nextProject={nextProject} />;
+  }
 
   return (
     <main className="detail-page">
@@ -89,7 +99,7 @@ export default async function ProjectDetail({ params }) {
 
       <nav className="detail-next" aria-label="项目详情导航">
         <Link href="/#top">返回首页</Link>
-        <Link href={`/projects/${projects[(projects.findIndex((item) => item.slug === slug) + 1) % projects.length].slug}`}>
+        <Link href={`/projects/${nextProject.slug}`}>
           下一个项目 →
         </Link>
       </nav>
