@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import PlayStationFrontlineCase from '../../components/projects/PlayStationFrontlineCase';
 import SplitFictionCase from '../../components/projects/SplitFictionCase';
 import { getProject, projects } from '../../data/projects';
 
@@ -13,7 +14,9 @@ export async function generateMetadata({ params }) {
   if (!project) return {};
   const images = project.slug === 'split-fiction'
     ? [{ url: '/assets/projects/split-fiction/hero/official-kv.jpg', width: 800, height: 800, alt: '《双影奇境》PS5 国行版官方主视觉' }]
-    : [];
+    : project.slug === 'playstation-frontline'
+      ? [{ url: '/assets/projects/playstation-frontline/content/new-release-ikuma.png', width: 368, height: 521, alt: 'PlayStation 玩家前线 iKUMA 内容封面' }]
+      : [];
   return {
     title: `${project.title}｜XUZIQING`,
     description: project.overview,
@@ -31,6 +34,10 @@ export default async function ProjectDetail({ params }) {
 
   if (project.slug === 'split-fiction') {
     return <SplitFictionCase project={project} nextProject={nextProject} />;
+  }
+
+  if (project.slug === 'playstation-frontline') {
+    return <PlayStationFrontlineCase project={project} nextProject={nextProject} />;
   }
 
   return (
