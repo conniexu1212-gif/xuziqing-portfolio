@@ -5,6 +5,7 @@ import PlayStationFrontlineCase from '../../components/projects/PlayStationFront
 import SnakeDogCase from '../../components/projects/SnakeDogCase';
 import SplitFictionCase from '../../components/projects/SplitFictionCase';
 import SummerTeaCase from '../../components/projects/SummerTeaCase';
+import VanishingStarlightCase from '../../components/projects/VanishingStarlightCase';
 import { getProject, projects } from '../../data/projects';
 
 export function generateStaticParams() {
@@ -17,13 +18,17 @@ export async function generateMetadata({ params }) {
   if (!project) return {};
   const description = project.slug === 'puppy-snake'
     ? '围绕 2025 蛇年春节节点，以年轻化 IP「小狗蛇」联动红包封面、动态表情包、社媒内容、UGC 与漫展线下活动，拓展品牌年轻消费人群。'
-    : project.overview;
+    : project.slug === 'star-ember'
+      ? '围绕《星烬·烛耀山海》正式上线，推进 PS5、Steam、WeGame 多平台发行、社媒内容与 Launch Trailer 海外官方渠道发布。'
+      : project.overview;
   const title = project.slug === 'puppy-snake'
     ? '茶话弄 × 小狗蛇｜蛇年春节 IP 联名｜XUZIQING'
     : project.slug === 'feirenzai'
     ? '茶话弄 × 非人哉｜XUZIQING'
     : project.slug === 'summer-tea'
       ? '茶话弄｜世界茶·夏日季｜XUZIQING'
+      : project.slug === 'star-ember'
+        ? '《星烬·烛耀山海》｜Vanishing Starlight｜XUZIQING'
       : `${project.title}｜XUZIQING`;
   const images = project.slug === 'puppy-snake'
     ? [{ url: '/assets/projects/snake-dog/hero/spring-festival-campaign-kv-clean.png', width: 790, height: 1706, alt: '茶话弄与小狗蛇 2025 蛇年春节联名主视觉' }]
@@ -35,6 +40,8 @@ export async function generateMetadata({ params }) {
       ? [{ url: '/assets/projects/playstation-frontline/content/new-release-ikuma.png', width: 368, height: 521, alt: 'PlayStation 玩家前线 iKUMA 内容封面' }]
       : project.slug === 'summer-tea'
         ? [{ url: '/assets/projects/summer-tea/hero/summer-dream-tropical-duo-kv.jpg', width: 1280, height: 1708, alt: '茶话弄夏梦熏风双杯新品主视觉' }]
+        : project.slug === 'star-ember'
+          ? [{ url: '/assets/projects/vanishing-starlight/hero/launch-kv.jpg', width: 2091, height: 1170, alt: '《星烬·烛耀山海》现已发售主视觉' }]
         : [];
   return {
     title,
@@ -69,6 +76,10 @@ export default async function ProjectDetail({ params }) {
 
   if (project.slug === 'puppy-snake') {
     return <SnakeDogCase project={project} nextProject={nextProject} />;
+  }
+
+  if (project.slug === 'star-ember') {
+    return <VanishingStarlightCase project={project} nextProject={nextProject} />;
   }
 
   return (

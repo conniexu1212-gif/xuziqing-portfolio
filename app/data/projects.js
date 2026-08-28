@@ -94,7 +94,7 @@ export const projects = [
     background: '围绕 Steam、WeGame、PlayStation 多平台上线，推进商店与传播内容准备。',
     responsibilities: ['梳理核心卖点与商店页面文案', '统筹素材与平台上线沟通', '策划发行期社媒内容与宣传 PV'],
     actions: ['推动宣传 PV 登陆 PlayStation 海外官方 YouTube 账号'],
-    metrics: ['海外官方账号单条播放 3.1万+'],
+    metrics: ['PlayStation 官方 YouTube Launch Trailer 播放 3.8万+'],
   },
   {
     index: '07',
