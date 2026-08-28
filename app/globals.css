@@ -9,6 +9,7 @@
   --yellow: #ffd85c;
   --mint: #9fe2c3;
   --pink: #ffb0ca;
+  --home-bottom-safe-area: 3.5rem;
 }
 
 * { box-sizing: border-box; }
@@ -85,7 +86,7 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
 .hero-copy h1 { margin: 0; font-size: clamp(4rem, 11vw, 10.5rem); line-height: .78; letter-spacing: -.075em; }
 .hero-role { margin: 1.3rem 0 0; font-size: clamp(.95rem, 1.55vw, 1.35rem); font-weight: 650; }
 
-.sticker-field { position: absolute; inset: clamp(13rem, 25vh, 14rem) 1rem 2.8rem; }
+.sticker-field { position: absolute; inset: clamp(13rem, 25vh, 14rem) 1rem var(--home-bottom-safe-area); }
 .project-sticker {
   position: absolute;
   z-index: 4;
@@ -151,6 +152,54 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
 .sticker-pragmata { --r: 3deg; right: 18%; top: 1%; width: clamp(9rem, min(12vw, 22vh), 11.5rem); }
 .home-contact { position: absolute; z-index: 20; right: clamp(1.25rem, 3.4vw, 3.75rem); bottom: .9rem; font-size: .62rem; letter-spacing: .08em; text-decoration: none; }
 .home-contact:hover { text-decoration: underline; text-underline-offset: .25rem; }
+
+@media (min-width: 1321px) {
+  .sticker-field { top: 13.5rem; }
+  .sticker-split-fiction { left: 49.5%; top: 16%; }
+  .sticker-playstation-frontline { --r: -2deg; left: 2.5%; top: 2%; }
+  .sticker-feirenzai { --r: 1deg; left: 0; bottom: 0; }
+  .sticker-summer-tea { --r: -1deg; right: -.2%; bottom: 0; }
+  .sticker-puppy-snake {
+    --r: 2deg;
+    left: 22.2%;
+    top: -20%;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .sticker-puppy-snake .sticker-visual { grid-row: 2; }
+  .sticker-puppy-snake .sticker-label { grid-row: 1; }
+  .sticker-star-ember { --r: -1deg; left: 67.5%; bottom: 0; }
+  .sticker-pragmata { --r: 2deg; right: 3%; top: 2%; }
+}
+
+@media (min-width: 1101px) and (max-width: 1320px) {
+  .sticker-field { top: 11.75rem; }
+  .sticker-split-fiction { left: 49%; top: 17%; }
+  .sticker-playstation-frontline { --r: -2deg; left: 2.5%; top: 1%; }
+  .sticker-feirenzai { --r: 1deg; left: 0; bottom: 0; }
+  .sticker-summer-tea { --r: -1deg; right: -.5%; bottom: 0; }
+  .sticker-puppy-snake {
+    --r: 2deg;
+    left: 22.5%;
+    top: -20%;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+  .sticker-puppy-snake .sticker-visual { grid-row: 2; }
+  .sticker-puppy-snake .sticker-label { grid-row: 1; }
+  .sticker-star-ember { --r: -1deg; left: 67.8%; bottom: 0; }
+  .sticker-pragmata { --r: 2deg; right: 3%; top: 4%; }
+}
+
+@media (min-width: 761px) and (max-width: 1100px) {
+  :root { --home-bottom-safe-area: 6rem; }
+  .sticker-field { top: 13rem; }
+  .sticker-split-fiction { left: 50%; top: 11%; }
+  .sticker-playstation-frontline { --r: -2deg; left: 2%; top: 1%; }
+  .sticker-feirenzai { --r: 1deg; left: 1%; top: 49%; bottom: auto; }
+  .sticker-summer-tea { --r: -1deg; right: 1%; top: 49%; bottom: auto; }
+  .sticker-puppy-snake { --r: 2deg; left: 31%; top: 68%; }
+  .sticker-star-ember { --r: -1deg; left: 56%; top: 68%; bottom: auto; }
+  .sticker-pragmata { --r: 2deg; right: 2%; top: 1%; }
+}
 
 .enter { animation: enter .55s ease both; }
 .project-sticker { animation: enter .5s ease both; }
@@ -867,7 +916,8 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
 }
 
 @media (max-width: 760px) {
-  .home-page, .hero-scene { height: 100svh; min-height: 38rem; }
+  :root { --home-bottom-safe-area: calc(5.75rem + env(safe-area-inset-bottom)); }
+  .home-page, .hero-scene { height: auto; min-height: 0; overflow: visible; }
   .home-header > .wordmark { top: .95rem; left: 1rem; font-size: .88rem; }
   .desktop-nav { display: none; }
   .mobile-dock {
@@ -880,13 +930,16 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
     grid-template-columns: repeat(4, 1fr);
   }
   .mobile-dock button { min-width: 0; flex-direction: column; gap: .18rem; padding: .55rem .25rem; font-size: .7rem; }
-  .hero-scene { padding: 4.4rem 1rem 5.2rem; }
+  .hero-scene { padding: 4.4rem 1rem var(--home-bottom-safe-area); }
   .hero-copy > p:first-child { margin-bottom: .45rem; font-size: .55rem; }
   .hero-copy h1 { font-size: clamp(3.25rem, 18vw, 5rem); }
   .hero-role { margin-top: .7rem; font-size: .78rem; }
   .sticker-field {
-    inset: 9.8rem .65rem 4.9rem;
+    position: relative;
+    inset: auto;
+    height: 51rem;
     display: block;
+    margin: 1.15rem -.35rem 0;
   }
   .project-sticker {
     position: absolute;
@@ -901,17 +954,17 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
   .sticker-label { display: block; }
   .sticker-title { font-size: .62rem; line-height: 1.08; }
   .sticker-subtitle { margin-top: .1rem; font-size: .47rem; white-space: normal; }
-  .sticker-cta { display: none; }
+  .sticker-cta { display: block; margin-top: .18rem; font-size: .45rem; opacity: .55; }
   .sticker-split-fiction { left: 50%; top: 0; width: 13.6rem; translate: -50% 0; }
   .sticker-split-fiction .sticker-label { text-align: center; }
   .sticker-split-fiction .sticker-title { font-size: .78rem; }
   .sticker-split-fiction .sticker-subtitle { font-size: .53rem; }
-  .sticker-playstation-frontline { left: 0; top: 9.4rem; width: 7.35rem; }
-  .sticker-feirenzai { right: 0; top: 9.8rem; width: 7.35rem; }
-  .sticker-summer-tea { left: 0; top: 19rem; width: 7.35rem; }
-  .sticker-puppy-snake { right: .45rem; top: 19.2rem; width: 6.15rem; }
-  .sticker-star-ember { left: 1.4rem; top: 28.35rem; width: 6.15rem; }
-  .sticker-pragmata { right: 1.35rem; top: 28rem; width: 6.15rem; }
+  .sticker-playstation-frontline { left: 0; top: 16.6rem; width: 7.35rem; }
+  .sticker-feirenzai { right: 0; top: 16.6rem; width: 7.35rem; }
+  .sticker-summer-tea { left: 0; top: 27rem; width: 7.35rem; }
+  .sticker-puppy-snake { right: .45rem; top: 27rem; width: 6.15rem; }
+  .sticker-star-ember { left: 1.4rem; top: 42rem; width: 6.15rem; }
+  .sticker-pragmata { right: 1.35rem; top: 42rem; width: 6.15rem; }
   .home-contact { display: none; }
   @keyframes enter-mobile { from { opacity: 0; transform: translateY(7px); } to { opacity: 1; transform: translateY(0); } }
 
@@ -1033,7 +1086,6 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
 
 @media (max-width: 390px) {
   .hero-copy h1 { font-size: 17.5vw; }
-  .sticker-field { top: 9.8rem; }
   .detail-back { font-size: .7rem; }
 }
 
