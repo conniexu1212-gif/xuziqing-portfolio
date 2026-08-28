@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import FeirenzaiCase from '../../components/projects/FeirenzaiCase';
 import PlayStationFrontlineCase from '../../components/projects/PlayStationFrontlineCase';
+import SnakeDogCase from '../../components/projects/SnakeDogCase';
 import SplitFictionCase from '../../components/projects/SplitFictionCase';
 import SummerTeaCase from '../../components/projects/SummerTeaCase';
 import { getProject, projects } from '../../data/projects';
@@ -14,12 +15,19 @@ export async function generateMetadata({ params }) {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
-  const title = project.slug === 'feirenzai'
+  const description = project.slug === 'puppy-snake'
+    ? '围绕 2025 蛇年春节节点，以年轻化 IP「小狗蛇」联动红包封面、动态表情包、社媒内容、UGC 与漫展线下活动，拓展品牌年轻消费人群。'
+    : project.overview;
+  const title = project.slug === 'puppy-snake'
+    ? '茶话弄 × 小狗蛇｜蛇年春节 IP 联名｜XUZIQING'
+    : project.slug === 'feirenzai'
     ? '茶话弄 × 非人哉｜XUZIQING'
     : project.slug === 'summer-tea'
       ? '茶话弄｜世界茶·夏日季｜XUZIQING'
       : `${project.title}｜XUZIQING`;
-  const images = project.slug === 'feirenzai'
+  const images = project.slug === 'puppy-snake'
+    ? [{ url: '/assets/projects/snake-dog/hero/spring-festival-campaign-kv-clean.png', width: 790, height: 1706, alt: '茶话弄与小狗蛇 2025 蛇年春节联名主视觉' }]
+    : project.slug === 'feirenzai'
     ? [{ url: '/assets/projects/feirenzai/hero/collaboration-family.png', width: 956, height: 1243, alt: '茶话弄 × 非人哉联名饮品及周边全家福' }]
     : project.slug === 'split-fiction'
     ? [{ url: '/assets/projects/split-fiction/hero/official-kv.jpg', width: 800, height: 800, alt: '《双影奇境》PS5 国行版官方主视觉' }]
@@ -30,9 +38,9 @@ export async function generateMetadata({ params }) {
         : [];
   return {
     title,
-    description: project.overview,
-    openGraph: { title, description: project.overview, images },
-    twitter: { title, description: project.overview, images },
+    description,
+    openGraph: { title, description, images },
+    twitter: { title, description, images },
   };
 }
 
@@ -57,6 +65,10 @@ export default async function ProjectDetail({ params }) {
 
   if (project.slug === 'summer-tea') {
     return <SummerTeaCase project={project} nextProject={nextProject} />;
+  }
+
+  if (project.slug === 'puppy-snake') {
+    return <SnakeDogCase project={project} nextProject={nextProject} />;
   }
 
   return (
