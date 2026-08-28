@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import FeirenzaiCase from '../../components/projects/FeirenzaiCase';
+import PragmataCase from '../../components/projects/PragmataCase';
 import PlayStationFrontlineCase from '../../components/projects/PlayStationFrontlineCase';
 import SnakeDogCase from '../../components/projects/SnakeDogCase';
 import SplitFictionCase from '../../components/projects/SplitFictionCase';
@@ -42,6 +43,8 @@ export async function generateMetadata({ params }) {
         ? [{ url: '/assets/projects/summer-tea/hero/summer-dream-tropical-duo-kv.jpg', width: 1280, height: 1708, alt: '茶话弄夏梦熏风双杯新品主视觉' }]
         : project.slug === 'star-ember'
           ? [{ url: '/assets/projects/vanishing-starlight/hero/launch-kv.jpg', width: 2091, height: 1170, alt: '《星烬·烛耀山海》现已发售主视觉' }]
+          : project.slug === 'pragmata'
+            ? [{ url: '/assets/projects/pragmata/hero/hero-character.jpg', width: 750, height: 945, alt: 'PRAGMATA 戴安娜与机甲角色主视觉' }]
         : [];
   return {
     title,
@@ -80,6 +83,10 @@ export default async function ProjectDetail({ params }) {
 
   if (project.slug === 'star-ember') {
     return <VanishingStarlightCase project={project} nextProject={nextProject} />;
+  }
+
+  if (project.slug === 'pragmata') {
+    return <PragmataCase project={project} />;
   }
 
   return (

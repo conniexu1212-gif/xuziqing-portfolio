@@ -1284,3 +1284,90 @@ body.overlay-open .hero-scene { filter: saturate(.7); transform: scale(.985); }
   .vs-hero h1 { font-size: 9.55vw; }
   .vs-result strong { font-size: 22vw; }
 }
+
+/* PRAGMATA mini case */
+.prg-page {
+  --prg-cyan: #36bfe6;
+  --prg-cyan-soft: #dff5fa;
+  --prg-silver: #d8dde0;
+  --prg-ink: #111419;
+  background: #f7f7f3;
+  color: var(--prg-ink);
+}
+.detail-page .prg-article { padding: 0; }
+.prg-header { border-color: rgba(17, 20, 25, .14); background: rgba(247, 247, 243, .95); }
+.prg-hero { padding: 0 clamp(1.25rem, 4vw, 4.5rem) clamp(5rem, 8vw, 8rem); }
+.prg-hero-grid { min-height: calc(100svh - 4.1rem); display: grid; grid-template-columns: minmax(31rem, .92fr) minmax(0, 1.08fr); align-items: stretch; }
+.prg-hero-copy { min-width: 0; display: grid; grid-template-rows: auto 1fr auto auto; gap: 2.5rem; padding: clamp(3rem, 5vw, 5.5rem) clamp(2rem, 5vw, 6rem) 3.5rem 0; }
+.prg-kicker, .prg-label { margin: 0; font-size: .64rem; font-weight: 750; letter-spacing: .14em; }
+.prg-kicker { color: #268eae; }
+.prg-title-group { align-self: center; }
+.prg-title-group h1 { margin: 0; font-size: clamp(4.6rem, 7.35vw, 8.4rem); line-height: .82; letter-spacing: -.085em; }
+.prg-title-group > p { margin: 1.4rem 0 0; font-size: clamp(1.05rem, 1.5vw, 1.35rem); font-weight: 700; }
+.prg-meta { display: grid; grid-template-columns: 1.4fr .8fr; gap: 2rem; margin: 0; }
+.prg-meta div { min-width: 0; }
+.prg-meta dt { margin-bottom: .55rem; color: rgba(17, 20, 25, .48); font-size: .64rem; }
+.prg-meta dd { margin: 0; font-size: .84rem; font-weight: 700; line-height: 1.5; }
+.prg-overview { max-width: 40rem; margin: 0; font-size: clamp(.94rem, 1.1vw, 1.04rem); line-height: 1.8; }
+.prg-hero-media { min-width: 0; display: grid; place-items: end center; margin: 0; overflow: hidden; background: linear-gradient(145deg, #edf9fb 0%, #f8f8f5 47%, #e6eaec 100%); }
+.prg-hero-media img { width: 100%; height: 100%; display: block; object-fit: contain; object-position: center bottom; }
+.prg-hero-details { display: grid; grid-template-columns: .82fr 1.18fr; gap: clamp(4rem, 9vw, 11rem); padding-top: clamp(4.5rem, 7vw, 7rem); }
+.prg-hero-details > div { display: grid; grid-template-columns: minmax(11rem, .7fr) minmax(0, 1.3fr); gap: clamp(1.5rem, 3vw, 3.5rem); align-items: start; }
+.prg-label { color: #268eae; line-height: 1.5; }
+.prg-hero-details ul { margin: 0; padding: 0; list-style: none; }
+.prg-hero-details li { position: relative; padding-left: 1.05rem; font-size: .88rem; line-height: 1.65; }
+.prg-hero-details li + li { margin-top: .7rem; }
+.prg-hero-details li::before { content: '•'; position: absolute; left: 0; color: var(--prg-cyan); }
+.prg-products { padding: clamp(6rem, 10vw, 11rem) clamp(1.25rem, 4vw, 4.5rem); background: #eef0f0; }
+.prg-section-heading { display: grid; grid-template-columns: minmax(15rem, .7fr) minmax(0, 2.3fr); gap: clamp(2rem, 7vw, 8rem); align-items: end; margin-bottom: clamp(4.5rem, 8vw, 8rem); }
+.prg-section-heading > p { margin: 0; color: #268eae; font-size: .64rem; font-weight: 750; letter-spacing: .14em; }
+.prg-section-heading h2 { max-width: 13ch; margin: 0; font-size: clamp(2.8rem, 5.8vw, 6.4rem); line-height: .93; letter-spacing: -.065em; }
+.prg-product-layout { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); align-items: start; }
+.prg-product { margin: 0; }
+.prg-product-disc { grid-column: 1 / 7; }
+.prg-product-bonus { grid-column: 8 / 13; margin-top: clamp(8rem, 13vw, 14rem); }
+.prg-product-frame { overflow: hidden; background: #fff; box-shadow: 0 1.5rem 4rem rgba(28, 41, 48, .08); }
+.prg-product-frame img { width: 100%; height: auto; display: block; }
+.prg-product figcaption { margin-top: 1rem; font-size: .72rem; font-weight: 700; letter-spacing: .04em; }
+.prg-product-video { grid-column: 3 / 13; margin-top: clamp(8rem, 13vw, 14rem); background: #080b0d; box-shadow: 0 1.8rem 5rem rgba(12, 20, 25, .13); }
+.prg-product-video video { width: 100%; height: auto; display: block; object-fit: contain; background: #080b0d; }
+.prg-closing { padding: clamp(6rem, 11vw, 12rem) clamp(1.25rem, 4vw, 4.5rem) 3rem; background: var(--prg-ink); color: #f7f7f3; }
+.prg-closing > p { max-width: 35ch; margin: 0 0 clamp(7rem, 13vw, 14rem); font-size: clamp(1.75rem, 3.6vw, 4rem); line-height: 1.35; letter-spacing: -.045em; }
+.prg-closing nav { display: flex; justify-content: flex-start; }
+.prg-closing a { color: inherit; font-size: .8rem; text-underline-offset: .35rem; }
+.prg-closing a:hover { color: var(--prg-cyan); }
+
+@media (max-width: 1100px) and (min-width: 761px) {
+  .prg-hero-grid { grid-template-columns: minmax(27rem, .95fr) 1.05fr; }
+  .prg-title-group h1 { font-size: 6.8vw; }
+  .prg-hero-details { gap: 4rem; }
+  .prg-hero-details > div { grid-template-columns: 1fr; gap: 1.5rem; }
+  .prg-product-bonus { margin-top: 8rem; }
+  .prg-product-video { grid-column: 2 / 13; margin-top: 9rem; }
+}
+
+@media (max-width: 760px) {
+  .prg-hero { padding: 0 1rem 4.75rem; }
+  .prg-hero-grid { min-height: 0; grid-template-columns: 1fr; }
+  .prg-hero-copy { min-height: 39rem; grid-template-rows: auto 1fr auto auto; gap: 2rem; padding: 2.5rem 0 2.25rem; }
+  .prg-title-group h1 { font-size: clamp(3.35rem, 17vw, 4.5rem); }
+  .prg-title-group > p { max-width: 18rem; font-size: 1rem; line-height: 1.5; }
+  .prg-meta { grid-template-columns: 1fr; gap: 1rem; }
+  .prg-overview { font-size: .9rem; }
+  .prg-hero-media img { height: auto; object-fit: contain; }
+  .prg-hero-details { grid-template-columns: 1fr; gap: 3.5rem; padding-top: 4rem; }
+  .prg-hero-details > div { grid-template-columns: 1fr; gap: 1.4rem; }
+  .prg-products { padding: 5.5rem 1rem; }
+  .prg-section-heading { display: block; margin-bottom: 3.75rem; }
+  .prg-section-heading > p { margin-bottom: 1.25rem; line-height: 1.5; }
+  .prg-section-heading h2 { font-size: clamp(2.65rem, 13vw, 3.8rem); }
+  .prg-product-layout { display: block; }
+  .prg-product-bonus, .prg-product-video { margin-top: 4.5rem; }
+  .prg-product figcaption { margin-top: .8rem; }
+  .prg-closing { padding: 5rem 1rem 2.5rem; }
+  .prg-closing > p { margin-bottom: 7rem; font-size: clamp(1.65rem, 8vw, 2.45rem); }
+}
+
+@media (max-width: 390px) {
+  .prg-title-group h1 { font-size: 16.2vw; }
+}
