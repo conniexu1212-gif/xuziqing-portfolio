@@ -7,7 +7,7 @@ import ProjectsPanel from './ProjectsPanel.jsx';
 import SkillsPanel from './SkillsPanel.jsx';
 
 const panelConfig = {
-  about: { eyebrow: '01 / PROFILE', title: '关于我', component: AboutPanel },
+  about: { eyebrow: 'ABOUT ME', title: '关于我', component: AboutPanel },
   experience: { eyebrow: '02 / EXPERIENCE', title: '工作经历', component: ExperiencePanel },
   projects: { eyebrow: '03 / SELECTED WORK', title: '项目经历', component: ProjectsPanel },
   skills: { eyebrow: '04 / CAPABILITIES', title: '个人能力', component: SkillsPanel },
