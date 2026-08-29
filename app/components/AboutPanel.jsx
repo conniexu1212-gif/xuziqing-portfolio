@@ -17,6 +17,7 @@ export default function AboutPanel() {
 
       <header className="about-identity">
         <p className="profile-name">XUZIQING</p>
+        <p className="profile-name-cn">徐子晴</p>
         <p className="profile-role">游戏营销 · 品牌营销 · 内容策划</p>
       </header>
 

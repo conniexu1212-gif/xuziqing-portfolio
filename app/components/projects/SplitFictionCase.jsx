@@ -1,5 +1,4 @@
-import Link from 'next/link';
-
+/* eslint-disable @next/next/no-html-link-for-pages -- Native anchors bypass broken Vinext RSC client navigation in production. */
 const timeline = [
   { date: '03.25 — 04.02', label: '项目预热' },
   { date: '04.03', label: '正式发售' },
@@ -63,8 +62,8 @@ export default function SplitFictionCase({ project, nextProject }) {
   return (
     <main className="detail-page split-fiction-page">
       <header className="detail-header sf-header">
-        <Link className="wordmark" href="/#top">XUZIQING</Link>
-        <Link className="detail-back" href="/#top">← 返回全部项目</Link>
+        <a className="wordmark" href="/">XUZIQING</a>
+        <a className="detail-back" href="/">← 返回全部项目</a>
       </header>
 
       <article className="sf-article">
@@ -251,8 +250,8 @@ export default function SplitFictionCase({ project, nextProject }) {
       </article>
 
       <nav className="detail-next sf-next" aria-label="项目详情导航">
-        <Link href="/#top">← 返回全部项目</Link>
-        <Link href={`/projects/${nextProject.slug}`}>下一个项目：{nextProject.title} →</Link>
+        <a href="/">← 返回全部项目</a>
+        <a href={`/projects/${nextProject.slug}`}>下一个项目：{nextProject.title} →</a>
       </nav>
     </main>
   );

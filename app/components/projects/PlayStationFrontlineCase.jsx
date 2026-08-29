@@ -1,4 +1,4 @@
-import Link from 'next/link';
+/* eslint-disable @next/next/no-html-link-for-pages -- Native anchors bypass broken Vinext RSC client navigation in production. */
 import Image from 'next/image';
 
 const assetRoot = '/assets/projects/playstation-frontline/content';
@@ -145,8 +145,8 @@ export default function PlayStationFrontlineCase({ nextProject }) {
   return (
     <main className="detail-page playstation-frontline-page">
       <header className="detail-header psf-header">
-        <Link className="wordmark" href="/#top">XUZIQING</Link>
-        <Link className="detail-back" href="/#top">← 返回全部项目</Link>
+        <a className="wordmark" href="/">XUZIQING</a>
+        <a className="detail-back" href="/">← 返回全部项目</a>
       </header>
 
       <article className="psf-article">
@@ -293,8 +293,8 @@ export default function PlayStationFrontlineCase({ nextProject }) {
       </article>
 
       <nav className="detail-next psf-next" aria-label="项目详情导航">
-        <Link href="/#top">← 返回全部项目</Link>
-        <Link href={`/projects/${nextProject.slug}`}>下一个项目：{nextProject.title} →</Link>
+        <a href="/">← 返回全部项目</a>
+        <a href={`/projects/${nextProject.slug}`}>下一个项目：{nextProject.title} →</a>
       </nav>
     </main>
   );

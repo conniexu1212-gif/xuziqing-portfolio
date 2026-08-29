@@ -8,17 +8,29 @@ function orderedProjects(slugs) {
 }
 
 function ProjectRows({ items, startAt = 1 }) {
-  return items.map((project, index) => (
-    <a className="project-index-row" href={`/projects/${project.slug}`} key={project.slug}>
-      <span className="project-index-number">{String(startAt + index).padStart(2, '0')}</span>
-      <div>
-        <p>{project.category}</p>
-        <h3>{project.title}</h3>
-      </div>
-      <p>{project.overview}</p>
-      <span className="project-index-arrow" aria-hidden="true">↗</span>
-    </a>
-  ));
+  return items.map((project, index) => {
+    const content = (
+      <>
+        <span className="project-index-number">{String(startAt + index).padStart(2, '0')}</span>
+        <div>
+          <p>{project.category}</p>
+          <h3>{project.title}</h3>
+        </div>
+        <p>{project.overview}</p>
+      </>
+    );
+
+    if (project.slug === 'seasonal-drinking') {
+      return <div className="project-index-row project-index-row-static" key={project.slug}>{content}</div>;
+    }
+
+    return (
+      <a className="project-index-row" href={`/projects/${project.slug}`} key={project.slug}>
+        {content}
+        <span className="project-index-arrow" aria-hidden="true">↗</span>
+      </a>
+    );
+  });
 }
 
 export default function ProjectsPanel() {

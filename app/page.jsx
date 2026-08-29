@@ -1,4 +1,4 @@
-import Link from 'next/link';
+/* eslint-disable @next/next/no-html-link-for-pages -- Native anchors bypass broken Vinext RSC client navigation in production. */
 import PortfolioNav from './components/PortfolioNav.jsx';
 import { heroProjects } from './data/projects';
 
@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <main className="home-page" id="top">
       <header className="home-header">
-        <Link className="wordmark" href="/#top" aria-label="返回首页顶部">XUZIQING</Link>
+        <a className="wordmark" href="/#top" aria-label="返回首页顶部">XUZIQING</a>
         <PortfolioNav />
       </header>
 
@@ -14,12 +14,13 @@ export default function Home() {
         <div className="hero-copy enter">
           <p>PORTFOLIO / 2026</p>
           <h1 id="hero-title">XUZIQING</h1>
+          <p className="hero-name-cn">徐子晴</p>
           <p className="hero-role">游戏营销 · 品牌营销 · 内容策划</p>
         </div>
 
         <div className="sticker-field" aria-label="精选项目入口">
           {heroProjects.map((project, index) => (
-            <Link
+            <a
               key={project.slug}
               href={`/projects/${project.slug}`}
               className={`project-sticker sticker-${project.slug}`}
@@ -42,7 +43,7 @@ export default function Home() {
                 </span>
                 <span className="sticker-cta" aria-hidden="true">查看项目 ↗</span>
               </span>
-            </Link>
+            </a>
           ))}
         </div>
 

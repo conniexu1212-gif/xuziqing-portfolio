@@ -1,4 +1,4 @@
-import Link from 'next/link';
+/* eslint-disable @next/next/no-html-link-for-pages -- Native anchors bypass broken Vinext RSC client navigation in production. */
 import { notFound, redirect } from 'next/navigation';
 import FeirenzaiCase from '../../components/projects/FeirenzaiCase';
 import PragmataCase from '../../components/projects/PragmataCase';
@@ -7,7 +7,7 @@ import SnakeDogCase from '../../components/projects/SnakeDogCase';
 import SplitFictionCase from '../../components/projects/SplitFictionCase';
 import SummerTeaCase from '../../components/projects/SummerTeaCase';
 import VanishingStarlightCase from '../../components/projects/VanishingStarlightCase';
-import { getProject, heroProjects, projects } from '../../data/projects';
+import { getProject, heroProjects } from '../../data/projects';
 
 const legacyProjectSlugs = {
   'puppy-snake': 'snake-dog',
@@ -16,7 +16,7 @@ const legacyProjectSlugs = {
 
 export function generateStaticParams() {
   return [
-    ...projects.map((project) => ({ slug: project.slug })),
+    ...heroProjects.map((project) => ({ slug: project.slug })),
     ...Object.keys(legacyProjectSlugs).map((slug) => ({ slug })),
   ];
 }
@@ -24,7 +24,7 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const project = getProject(slug);
-  if (!project) return {};
+  if (!project || project.tier === 'archive') return {};
   const description = project.slug === 'snake-dog'
     ? '围绕 2025 蛇年春节节点，以年轻化 IP「小狗蛇」联动红包封面、动态表情包、社媒内容、UGC 与漫展线下活动，拓展品牌年轻消费人群。'
     : project.slug === 'vanishing-starlight'
@@ -67,7 +67,7 @@ export default async function ProjectDetail({ params }) {
   if (legacyProjectSlugs[slug]) redirect(`/projects/${legacyProjectSlugs[slug]}`);
 
   const project = getProject(slug);
-  if (!project) notFound();
+  if (!project || project.tier === 'archive') notFound();
 
   const nextProject = heroProjects[(heroProjects.findIndex((item) => item.slug === slug) + 1) % heroProjects.length];
 
@@ -102,8 +102,8 @@ export default async function ProjectDetail({ params }) {
   return (
     <main className="detail-page">
       <header className="detail-header">
-        <Link className="wordmark" href="/#top">XUZIQING</Link>
-        <Link className="detail-back" href="/#top">← 返回首页</Link>
+        <a className="wordmark" href="/">XUZIQING</a>
+        <a className="detail-back" href="/">← 返回首页</a>
       </header>
 
       <article>
@@ -164,10 +164,10 @@ export default async function ProjectDetail({ params }) {
       </article>
 
       <nav className="detail-next" aria-label="项目详情导航">
-        <Link href="/#top">返回首页</Link>
-        <Link href={`/projects/${nextProject.slug}`}>
+        <a href="/">返回首页</a>
+        <a href={`/projects/${nextProject.slug}`}>
           下一个项目 →
-        </Link>
+        </a>
       </nav>
     </main>
   );

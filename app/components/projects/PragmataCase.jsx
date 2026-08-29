@@ -1,5 +1,5 @@
+/* eslint-disable @next/next/no-html-link-for-pages -- Native anchors bypass broken Vinext RSC client navigation in production. */
 import Image from 'next/image';
-import Link from 'next/link';
 
 const assetRoot = '/assets/projects/pragmata';
 
@@ -7,8 +7,8 @@ export default function PragmataCase({ nextProject }) {
   return (
     <main className="detail-page prg-page">
       <header className="detail-header prg-header">
-        <Link className="wordmark" href="/#top">XUZIQING</Link>
-        <Link className="detail-back" href="/#top">← 返回全部项目</Link>
+        <a className="wordmark" href="/">XUZIQING</a>
+        <a className="detail-back" href="/">← 返回全部项目</a>
       </header>
 
       <article className="prg-article">
@@ -109,8 +109,8 @@ export default function PragmataCase({ nextProject }) {
         <section className="prg-closing" aria-label="项目总结与项目导航">
           <p>围绕港版 PS5 实体版发售，推进限定透卡赠品、供应商物料及 CAPCOM 监修流程落地，完成实体商品与配套赠品的发行支持。</p>
           <nav aria-label="项目详情导航">
-            <Link href="/#top">← 返回全部项目</Link>
-            <Link href={`/projects/${nextProject.slug}`}>下一个项目：{nextProject.title} →</Link>
+            <a href="/">← 返回全部项目</a>
+            <a href={`/projects/${nextProject.slug}`}>下一个项目：{nextProject.title} →</a>
           </nav>
         </section>
       </article>
