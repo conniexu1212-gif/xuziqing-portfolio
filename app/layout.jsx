@@ -6,7 +6,7 @@ const siteDescription = '游戏营销、品牌营销与内容策划作品集，�
 export const metadata = {
   title: siteTitle,
   description: siteDescription,
-  metadataBase: new URL('http://localhost:3000'),
+  metadataBase: new URL('https://xuziqing.milky-aspen-2833.chatgpt.site'),
   openGraph: {
     title: siteTitle,
     description: siteDescription,
