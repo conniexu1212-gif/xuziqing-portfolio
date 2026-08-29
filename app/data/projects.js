@@ -119,7 +119,7 @@ export const projects = [
     subtitle: '年度品牌战略',
     tier: 'archive',
     category: '品牌战略',
-    overview: '茶话弄后期的重要工作主线之一，完整案例内容将在后续补充。',
+    overview: '围绕「循季而饮」参与茶话弄年度品牌战略与品牌建设工作。',
     meta: { time: '待补充', product: '循季而饮', role: '品牌策划 / CMO 助理', type: '年度品牌战略' },
     background: '作为茶话弄品牌建设工作的一部分，参与“循季而饮”年度品牌战略。',
     responsibilities: ['项目职责待补充'],

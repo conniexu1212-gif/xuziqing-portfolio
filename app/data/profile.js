@@ -21,7 +21,7 @@ export const experiences = [
     tags: ['“纣王快乐舞”话题', '舞剧《咏春》线上宣传'],
   },
   {
-    period: '2022.08—2023.01',
+    period: '2021.08—2022.07',
     company: '蓝色光标',
     role: 'AE / KOL Marketing',
     summary: '达人筛选、Brief、内容沟通与投后复盘。',
