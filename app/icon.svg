@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <title>XZQ</title>
+  <rect width="128" height="128" rx="12" fill="#f5f0e6"/>
+  <g fill="none" stroke="#171713" stroke-width="8" stroke-linecap="square" stroke-linejoin="miter">
+    <path d="M15 37L37 91M37 37L15 91"/>
+    <path d="M48 37H76L48 91H76"/>
+    <ellipse cx="99" cy="64" rx="17" ry="27"/>
+    <path d="M104 82L118 96"/>
+  </g>
+</svg>
