@@ -136,7 +136,7 @@ export default function SplitFictionCase({ project, nextProject }) {
         <section className="sf-section sf-release" aria-labelledby="sf-release-title">
           <SectionHeading eyebrow="RELEASE FILM / 发行 PV" title="为正式发售释放核心产品信息" number="02" id="sf-release-title" />
           <div className="sf-release-body">
-            <video className="sf-release-video" controls preload="metadata" playsInline aria-label="《双影奇境》国行版发行 PV">
+            <video className="sf-release-video" controls poster={`${assetRoot}/video/release-poster.jpg`} preload="metadata" playsInline aria-label="《双影奇境》国行版发行 PV">
               <source src={`${assetRoot}/video/release-pv.mp4`} type="video/mp4" />
               你的浏览器暂不支持视频播放。
             </video>
@@ -175,7 +175,7 @@ export default function SplitFictionCase({ project, nextProject }) {
                 <h3 id="sf-hotspot-title">发行期热点短视频</h3>
                 <span>发行期热点短视频案例。</span>
               </div>
-              <video controls preload="metadata" playsInline aria-label="《双影奇境》发行期热点短视频">
+              <video controls poster={`${assetRoot}/video/hotspot-poster.jpg`} preload="metadata" playsInline aria-label="《双影奇境》发行期热点短视频">
                 <source src={`${assetRoot}/video/social-hotspot.mp4`} type="video/mp4" />
                 你的浏览器暂不支持视频播放。
               </video>

@@ -133,7 +133,7 @@ export default function SnakeDogCase({ nextProject }) {
           <aside className="sd-ugc-note">
             <p className="sd-label">SOCIAL CONTENT / UGC</p>
             <p>结合春节节点进行官号内容、用户互动与 UGC 扩散，持续强化角色认知与联名参与感。</p>
-            <ExternalLink href="https://www.xiaohongshu.com/discovery/item/678786030000000019016e15">查看项目原帖 ↗</ExternalLink>
+            <ExternalLink href="https://xhslink.cn/o/A9aXWzdwLD3">查看项目原帖 ↗</ExternalLink>
           </aside>
         </section>
 

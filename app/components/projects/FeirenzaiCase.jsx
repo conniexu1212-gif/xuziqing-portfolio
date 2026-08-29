@@ -190,7 +190,7 @@ export default function FeirenzaiCase({ nextProject }) {
               <h3 id="fz-animation-title">联名定制动画</h3>
             </div>
             <p>围绕「神仙打工人喝神仙奶茶」传播概念，与IP方沟通并推进定制动画脚本与内容落地。</p>
-            <ExternalLink href="https://www.xiaohongshu.com/discovery/item/66654dac0000000006007e1f">查看联名定制动画 ↗</ExternalLink>
+            <ExternalLink href="https://xhslink.cn/o/3O5O29v77Qe">查看联名定制动画 ↗</ExternalLink>
           </aside>
         </section>
 

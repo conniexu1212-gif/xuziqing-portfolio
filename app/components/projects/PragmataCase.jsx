@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const assetRoot = '/assets/projects/pragmata';
 
-export default function PragmataCase() {
+export default function PragmataCase({ nextProject }) {
   return (
     <main className="detail-page prg-page">
       <header className="detail-header prg-header">
@@ -110,6 +110,7 @@ export default function PragmataCase() {
           <p>围绕港版 PS5 实体版发售，推进限定透卡赠品、供应商物料及 CAPCOM 监修流程落地，完成实体商品与配套赠品的发行支持。</p>
           <nav aria-label="项目详情导航">
             <Link href="/#top">← 返回全部项目</Link>
+            <Link href={`/projects/${nextProject.slug}`}>下一个项目：{nextProject.title} →</Link>
           </nav>
         </section>
       </article>

@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import FeirenzaiCase from '../../components/projects/FeirenzaiCase';
 import PragmataCase from '../../components/projects/PragmataCase';
 import PlayStationFrontlineCase from '../../components/projects/PlayStationFrontlineCase';
@@ -7,31 +7,39 @@ import SnakeDogCase from '../../components/projects/SnakeDogCase';
 import SplitFictionCase from '../../components/projects/SplitFictionCase';
 import SummerTeaCase from '../../components/projects/SummerTeaCase';
 import VanishingStarlightCase from '../../components/projects/VanishingStarlightCase';
-import { getProject, projects } from '../../data/projects';
+import { getProject, heroProjects, projects } from '../../data/projects';
+
+const legacyProjectSlugs = {
+  'puppy-snake': 'snake-dog',
+  'star-ember': 'vanishing-starlight',
+};
 
 export function generateStaticParams() {
-  return projects.map((project) => ({ slug: project.slug }));
+  return [
+    ...projects.map((project) => ({ slug: project.slug })),
+    ...Object.keys(legacyProjectSlugs).map((slug) => ({ slug })),
+  ];
 }
 
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   const project = getProject(slug);
   if (!project) return {};
-  const description = project.slug === 'puppy-snake'
+  const description = project.slug === 'snake-dog'
     ? '围绕 2025 蛇年春节节点，以年轻化 IP「小狗蛇」联动红包封面、动态表情包、社媒内容、UGC 与漫展线下活动，拓展品牌年轻消费人群。'
-    : project.slug === 'star-ember'
+    : project.slug === 'vanishing-starlight'
       ? '围绕《星烬·烛耀山海》正式上线，推进 PS5、Steam、WeGame 多平台发行、社媒内容与 Launch Trailer 海外官方渠道发布。'
       : project.overview;
-  const title = project.slug === 'puppy-snake'
+  const title = project.slug === 'snake-dog'
     ? '茶话弄 × 小狗蛇｜蛇年春节 IP 联名｜XUZIQING'
     : project.slug === 'feirenzai'
     ? '茶话弄 × 非人哉｜XUZIQING'
     : project.slug === 'summer-tea'
       ? '茶话弄｜世界茶·夏日季｜XUZIQING'
-      : project.slug === 'star-ember'
+      : project.slug === 'vanishing-starlight'
         ? '《星烬·烛耀山海》｜Vanishing Starlight｜XUZIQING'
       : `${project.title}｜XUZIQING`;
-  const images = project.slug === 'puppy-snake'
+  const images = project.slug === 'snake-dog'
     ? [{ url: '/assets/projects/snake-dog/hero/spring-festival-campaign-kv-clean.png', width: 790, height: 1706, alt: '茶话弄与小狗蛇 2025 蛇年春节联名主视觉' }]
     : project.slug === 'feirenzai'
     ? [{ url: '/assets/projects/feirenzai/hero/collaboration-family.png', width: 956, height: 1243, alt: '茶话弄 × 非人哉联名饮品及周边全家福' }]
@@ -41,7 +49,7 @@ export async function generateMetadata({ params }) {
       ? [{ url: '/assets/projects/playstation-frontline/content/new-release-ikuma.png', width: 368, height: 521, alt: 'PlayStation 玩家前线 iKUMA 内容封面' }]
       : project.slug === 'summer-tea'
         ? [{ url: '/assets/projects/summer-tea/hero/summer-dream-tropical-duo-kv.jpg', width: 1280, height: 1708, alt: '茶话弄夏梦熏风双杯新品主视觉' }]
-        : project.slug === 'star-ember'
+        : project.slug === 'vanishing-starlight'
           ? [{ url: '/assets/projects/vanishing-starlight/hero/launch-kv.jpg', width: 2091, height: 1170, alt: '《星烬·烛耀山海》现已发售主视觉' }]
           : project.slug === 'pragmata'
             ? [{ url: '/assets/projects/pragmata/hero/hero-character.jpg', width: 750, height: 945, alt: 'PRAGMATA 戴安娜与机甲角色主视觉' }]
@@ -56,10 +64,12 @@ export async function generateMetadata({ params }) {
 
 export default async function ProjectDetail({ params }) {
   const { slug } = await params;
+  if (legacyProjectSlugs[slug]) redirect(`/projects/${legacyProjectSlugs[slug]}`);
+
   const project = getProject(slug);
   if (!project) notFound();
 
-  const nextProject = projects[(projects.findIndex((item) => item.slug === slug) + 1) % projects.length];
+  const nextProject = heroProjects[(heroProjects.findIndex((item) => item.slug === slug) + 1) % heroProjects.length];
 
   if (project.slug === 'split-fiction') {
     return <SplitFictionCase project={project} nextProject={nextProject} />;
@@ -77,16 +87,16 @@ export default async function ProjectDetail({ params }) {
     return <SummerTeaCase project={project} nextProject={nextProject} />;
   }
 
-  if (project.slug === 'puppy-snake') {
+  if (project.slug === 'snake-dog') {
     return <SnakeDogCase project={project} nextProject={nextProject} />;
   }
 
-  if (project.slug === 'star-ember') {
+  if (project.slug === 'vanishing-starlight') {
     return <VanishingStarlightCase project={project} nextProject={nextProject} />;
   }
 
   if (project.slug === 'pragmata') {
-    return <PragmataCase project={project} />;
+    return <PragmataCase project={project} nextProject={nextProject} />;
   }
 
   return (

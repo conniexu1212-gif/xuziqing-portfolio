@@ -1,7 +1,7 @@
 import { projects } from '../data/projects';
 
-const focusOrder = ['split-fiction', 'playstation-frontline', 'feirenzai', 'puppy-snake', 'summer-tea'];
-const otherOrder = ['star-ember', 'pragmata', 'seasonal-drinking'];
+const focusOrder = ['split-fiction', 'playstation-frontline', 'feirenzai', 'snake-dog', 'summer-tea'];
+const otherOrder = ['vanishing-starlight', 'pragmata', 'seasonal-drinking'];
 
 function orderedProjects(slugs) {
   return slugs.map((slug) => projects.find((project) => project.slug === slug)).filter(Boolean);

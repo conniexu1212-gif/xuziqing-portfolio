@@ -34,4 +34,6 @@ export const skillGroups = [
   { number: '02', title: '内容', items: ['内容策略', '社媒策划', '文案', 'PV 创意', '内容复盘'] },
   { number: '03', title: '协作', items: ['平台合作', 'IP / 版权方沟通', '跨部门协同', '供应商沟通'] },
   { number: '04', title: '执行', items: ['线下活动', '电商内容', '项目统筹', '数据复盘'] },
+  { number: '05', title: 'AI WORKFLOW', items: ['ChatGPT / GPT 辅助内容策划、资料整理、创意发散与工作流提效'] },
+  { number: '06', title: 'ENGLISH', items: ['可作为工作语言｜英文资料阅读、沟通及内容处理'] },
 ];

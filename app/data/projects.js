@@ -66,7 +66,7 @@ export const projects = [
   },
   {
     index: '05',
-    slug: 'puppy-snake',
+    slug: 'snake-dog',
     title: '小狗蛇 × 茶话弄',
     subtitle: '春节联名 / 整合营销',
     heroImage: '/assets/hero/snake-dog-tea.png',
@@ -82,7 +82,7 @@ export const projects = [
   },
   {
     index: '06',
-    slug: 'star-ember',
+    slug: 'vanishing-starlight',
     title: '星烬·烛耀山海',
     subtitle: '发行上线 / PV 策划',
     heroImage: '/assets/hero/vanishing-starlight.png',
